@@ -23,11 +23,11 @@ public class Breakout extends ApplicationAdapter {
 	public void render () {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		shape.begin(ShapeRenderer.ShapeType.Filled);
-		ball.update();
+		ball.checkCollision(paddle);
+		ball.update(paddle);
 		ball.draw(shape);
 		paddle.update();
 		paddle.draw(shape);
-		ball.checkCollision(paddle);
 		shape.end();
 	}
 

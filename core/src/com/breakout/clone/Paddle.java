@@ -13,11 +13,12 @@ public class Paddle {
 
     public int getX()
     {
-        return x;
+        return this.x;
     }
+
     public int getY()
     {
-        return y;
+        return this.y;
     }
 
     public Paddle(int width, int height, int xSpeed)

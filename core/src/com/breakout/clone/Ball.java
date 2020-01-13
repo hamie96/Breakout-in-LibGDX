@@ -22,7 +22,7 @@ public class Ball {
         this.ySpeed = ySpeed;
     }
 
-    public void update()
+    public void update(Paddle paddle)
     {
         x += xSpeed;
         y += ySpeed;
@@ -35,29 +35,31 @@ public class Ball {
         {
             ySpeed = -ySpeed;
         }
+        checkCollision(paddle);
+
     }
 
-    public void checkCollision(Paddle paddle)
-    {
-        if(collidesWith(paddle))
-        {
+    public void draw(ShapeRenderer shape){
+        shape.setColor(color);
+        shape.circle(x, y, size);
+    }
+    public void checkCollision(Paddle paddle) {
+        if(collidesWith(paddle)){
             color = Color.GREEN;
         }
+        else{
+            color = Color.WHITE;
+        }
     }
+    private boolean collidesWith(Paddle paddle) {
+        if (y == paddle.getY())
+        {
 
-    private boolean collidesWith(Paddle paddle)
-    {
-            if(x == paddle.getX()  && y == paddle.getY() )
-            {
-                return true;
-            }
-            else
-                return false;
-    }
-
-    public void draw(ShapeRenderer shape)
-    {
-        shape.setColor(color);
-        shape.circle(x,y,size);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }
