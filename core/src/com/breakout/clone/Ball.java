@@ -52,7 +52,7 @@ public class Ball {
         }
     }
     private boolean collidesWith(Paddle paddle) {
-        if (y == paddle.getY())
+        if (this.y + 15 == paddle.getY() - 15)
         {
 
             return true;

@@ -31,6 +31,7 @@ public class Paddle {
     public void update()
     {
         x = Gdx.input.getX();
+
     }
 
     public void draw(ShapeRenderer shape)
